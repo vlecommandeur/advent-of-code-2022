@@ -413,35 +413,4 @@ const input = [
   [2124, 7143, 6779, 2022, 2034, 9093, 4122, 1303, 5054],
 ];
 
-const calculateSumArray = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
-
-const findMaxCalories = () => {
-  let maxCalories = 0;
-
-  input.forEach((arr) => {
-    const calories = calculateSumArray(arr);
-
-    if (calories > maxCalories) maxCalories = calories;
-  });
-
-  return maxCalories;
-};
-
-const findTopThreeCalories = () => {
-  let topThreeCalories = [0, 0, 0];
-
-  input.forEach((arr) => {
-    const calories = calculateSumArray(arr);
-    const minOfMax = topThreeCalories.reduce((acc, curr) =>
-      acc < curr ? acc : curr
-    );
-
-    if (calories > minOfMax)
-      topThreeCalories[topThreeCalories.indexOf(minOfMax)] = calories;
-  });
-
-  return calculateSumArray(topThreeCalories);
-};
-
-console.log(findMaxCalories());
-console.log(findTopThreeCalories());
+module.exports = { input };

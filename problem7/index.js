@@ -19,6 +19,7 @@ const calculateDirectoriesSizesSum = () => {
 
   input.forEach((command) => {
     const commandArr = command.split(" ");
+
     if (commandArr[0] === "dir") {
       currentNode.add({
         name: commandArr[1],
@@ -74,11 +75,6 @@ const calculateDirectoriesSizesSum = () => {
   });
 
   tree.traverseBF((node) => {
-    if (node.data.type === "file") {
-      if (node.data.value <= 100000)
-        directoriesSizesSum += parseInt(node.data.value);
-    }
-
     if (node.data.type === "directory") {
       let sum = 0;
 
@@ -96,4 +92,4 @@ const calculateDirectoriesSizesSum = () => {
   return directoriesSizesSum;
 };
 
-console.log(calculateDirectoriesSizesSum());
+console.log("Directories sizes sum:", calculateDirectoriesSizesSum());
